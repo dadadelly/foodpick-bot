@@ -1,9 +1,9 @@
 const express = require(‘express’);
-const line = require(’@line/bot-sdk’);
+const line = require(‘@line/bot-sdk’);
 
 const config = {
-channelAccessToken: process.env.LINE_CHANNEL_ACCESS_TOKEN || ‘YOUR_CHANNEL_ACCESS_TOKEN’,
-channelSecret: process.env.LINE_CHANNEL_SECRET || ‘YOUR_CHANNEL_SECRET’,
+channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN || ‘YOUR_CHANNEL_ACCESS_TOKEN’,
+channelSecret: process.env.CHANNEL_SECRET || ‘YOUR_CHANNEL_SECRET’,
 };
 
 const client = new line.Client(config);
@@ -273,7 +273,7 @@ text: kw.replace(/^[^\s]+\s/, ‘’),
 }
 
 // ===== WEBHOOK HANDLER =====
-app.post(’/webhook’, line.middleware(config), async (req, res) => {
+app.post(’https://foodpick-bot.onrender.com/webhook’, line.middleware(config), async (req, res) => {
 try {
 const events = req.body.events;
 await Promise.all(events.map(handleEvent));
