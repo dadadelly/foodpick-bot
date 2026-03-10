@@ -1,7 +1,7 @@
 {
  "name": "foodpick-linebot",
  "version": "1.0.0",
- "description": "🍽️ FOODPICK - LINE Bot สุ่มเมนูอาหาร",
+ "description": "FOODPICK - LINE Bot",
  "main": "index.js",
  "scripts": {
    "start": "node index.js",
