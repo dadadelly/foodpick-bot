@@ -8,6 +8,8 @@ const config = {
 
 const client = new line.Client(config);
 const app = express();
+app.use(express.json());
+
 
 // ===== FOOD DATABASE =====
 const foodMenu = [
