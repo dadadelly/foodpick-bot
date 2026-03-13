@@ -100,7 +100,6 @@ function buildFlexMessage(foods) {
           layout: 'horizontal',
           contents: [{ type: 'text', text: food.tag, size: 'xs', color: '#ffffff', align: 'center' }],
           backgroundColor: food.tagColor,
-          cornerRadius: '20px',
           width: '80px',
           height: '22px',
           justifyContent: 'center',
