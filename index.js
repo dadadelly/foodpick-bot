@@ -103,7 +103,6 @@ function buildFlexMessage(foods) {
           width: '80px',
           height: '22px',
           justifyContent: 'center',
-          alignItems: 'center',
         },
         {
           type: 'text',
@@ -171,7 +170,6 @@ function buildFlexMessage(foods) {
             type: 'box',
             layout: 'vertical',
             justifyContent: 'center',
-            alignItems: 'center',
             backgroundColor: '#FF6B6B',
             contents: [
               { type: 'text', text: '🍽️', size: 'xxl' },
