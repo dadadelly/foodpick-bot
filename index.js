@@ -203,12 +203,36 @@ app.post('/webhook', line.middleware(config), async (req, res) => {
 });
 
 async function handleEvent(event) {
-  if (event.type !== 'message') return;
 
+  if (event.type !== 'message' || event.message.type !== 'text') return;
+
+  const userText = event.message.text;
+
+  // ถ้าพิมพ์ keyword
+  if (matchKeyword(userText)) {
+
+    const randomFoods = getRandomFoods(3);
+
+    return client.replyMessage(
+      event.replyToken,
+      buildFlexMessage(randomFoods)
+    );
+  }
+
+  // ถ้าพิมพ์ "สั่ง ..."
+  if (userText.startsWith("สั่ง")) {
+    return client.replyMessage(event.replyToken, {
+      type: "text",
+      text: `รับออเดอร์ ${userText.replace("สั่ง ", "")} แล้วค่าา 🍽️✨`
+    });
+  }
+
+  // ถ้าไม่เข้าใจ
   return client.replyMessage(event.replyToken, {
-    type: 'text',
-    text: 'BOT ทำงานแล้ว 🎉'
+    type: "text",
+    text: "งื้อออ 🥺 ฉันไม่เข้าใจ พิมพ์ 'หิวข้าว' หรือ 'กินอะไรดี' นะ 🍜💕"
   });
+
 }
 
 app.get('/', (req, res) => res.send('🍽️ FOODPICK Bot is running! ✅'));
