@@ -81,7 +81,7 @@ function getRandomFoods(count = 3) {
 function buildFlexMessage(foods) {
   const bubbles = foods.map(food => ({
     type: 'bubble',
-    size: 'kilo',
+    size: 'mega',
     hero: {
       type: 'image',
       url: food.image,
