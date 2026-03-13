@@ -33,31 +33,31 @@ const foods = [
 {
 name:"🍜 ผัดไทยกุ้งสด",
 price:"70 บาท",
-img:"https://images.unsplash.com/photo-1559314809-0d155014e29e"
+img:"https://s.shortlink.ly/EznM9k"
 },
 
 {
 name:"🍲 ต้มยำกุ้ง",
 price:"90 บาท",
-img:"https://images.unsplash.com/photo-1548943487-a2e4e43b4853"
+img:"https://s.shortlink.ly/POTh7W"
 },
 
 {
 name:"🍤 ข้าวผัดกุ้ง",
 price:"65 บาท",
-img:"https://images.unsplash.com/photo-1603133872878-684f208fb84b"
+img:"https://s.shortlink.ly/1xt2lA"
 },
 
 {
 name:"🍗 ข้าวมันไก่",
 price:"55 บาท",
-img:"https://images.unsplash.com/photo-1569050467447-ce54b3bbc37d"
+img:"https://s.shortlink.ly/bMcaAy"
 },
 
 {
 name:"🥗 ส้มตำไทย",
 price:"50 บาท",
-img:"https://images.unsplash.com/photo-1562802378-063ec186a863"
+img:"https://s.shortlink.ly/F08XAF"
 }
 
 ];
