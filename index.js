@@ -183,14 +183,14 @@ const foods=[
 
 {name:"🍜 ผัดไทยกุ้งสด",price:"70 บาท",type:"food",img:"https://s.shortlink.ly/EznM9k"},
 {name:"🍲 ต้มยำกุ้ง",price:"90 บาท",type:"food",img:"https://s.shortlink.ly/POTh7W"},
-{name:"🍤 ข้าวผัดกุ้ง",price:"65 บาท",type:"food",img:"https://s.shortlink.ly/1xt21A"},
+{name:"🍤 ข้าวผัดกุ้ง",price:"65 บาท",type:"food",img:"https://s.shortlink.ly/fYYPXL"},
 {name:"🍗 ข้าวมันไก่",price:"55 บาท",type:"food",img:"https://s.shortlink.ly/bMcaAy"},
 {name:"🥗 ส้มตำไทย",price:"50 บาท",type:"food",img:"https://s.shortlink.ly/F08XAF"},
 {name:"🍝 สปาเกตตี้",price:"95 บาท",type:"food",img:"https://images.unsplash.com/photo-1608756687911-aa1599ab3bd9"},
 {name:"🍔 เบอร์เกอร์",price:"120 บาท",type:"food",img:"https://images.unsplash.com/photo-1550547660-d9450f859349"},
-{name:"🍕 พิซซ่า",price:"150 บาท",type:"food",img:"https://images.unsplash.com/photo-1548365328-9f547fb0953c"},
-{name:"🍳 ข้าวไข่เจียว",price:"40 บาท",type:"food",img:"https://images.unsplash.com/photo-1604909053195-8c8c9b472151"},
-{name:"🍱 ข้าวหน้าหมู",price:"60 บาท",type:"food",img:"https://images.unsplash.com/photo-1604908554028-bb8a9e4b9a2e"},
+{name:"🍕 พิซซ่า",price:"150 บาท",type:"food",img:"https://s.shortlink.ly/C3n7Mv"},
+{name:"🍳 ข้าวไข่เจียว",price:"40 บาท",type:"food",img:"https://s.shortlink.ly/WGGAFJ"},
+{name:"🍱 ข้าวหน้าหมู",price:"60 บาท",type:"food",img:"https://s.shortlink.ly/eZjV8F"},
 
 {name:"🍰 เค้กสตรอว์เบอร์รี่",price:"75 บาท",type:"dessert",img:"https://s.shortlink.ly/rV7irO"},
 {name:"🍨 ไอศกรีมวานิลลา",price:"45 บาท",type:"dessert",img:"https://s.shortlink.ly/5sVTgM"},
@@ -201,7 +201,7 @@ const foods=[
 {name:"🍪 คุกกี้ช็อกโกแลต",price:"35 บาท",type:"dessert",img:"https://images.unsplash.com/photo-1499636136210-6f4ee915583e"},
 {name:"🥞 แพนเค้ก",price:"65 บาท",type:"dessert",img:"https://images.unsplash.com/photo-1528207776546-365bb710ee93"},
 {name:"🍧 น้ำแข็งไส",price:"40 บาท",type:"dessert",img:"https://images.unsplash.com/photo-1625944525903-c6b8c7b4a2a3"},
-{name:"🍯 ฮันนี่โทสต์",price:"95 บาท",type:"dessert",img:"https://images.unsplash.com/photo-1606313564200-e75d5e30476d"},
+{name:"🍯 ฮันนี่โทสต์",price:"95 บาท",type:"dessert",img:"https://s.shortlink.ly/4fMYLv"},
 
 {name:"🧋 ชานมไข่มุก",price:"50 บาท",type:"drink",img:"https://s.shortlink.ly/T9woRa"},
 {name:"☕ กาแฟลาเต้",price:"60 บาท",type:"drink",img:"https://s.shortlink.ly/Bft3UW"},
@@ -295,7 +295,7 @@ margin:"sm",
 action:{
 type:"message",
 label:"🔄 สุ่มใหม่",
-text:"สุ่มอาหาร"
+text:`สุ่ม${f.type==="food"?"อาหาร":f.type==="dessert"?"ของหวาน":"เครื่องดื่ม"}`
 }
 }
 
