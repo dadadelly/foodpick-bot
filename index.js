@@ -197,10 +197,10 @@ const foods=[
 {name:"🍩 โดนัท",price:"35 บาท",type:"dessert",img:"https://s.shortlink.ly/qaUvch"},
 {name:"🍮 พุดดิ้ง",price:"40 บาท",type:"dessert",img:"https://images.unsplash.com/photo-1488477181946-6428a0291777"},
 {name:"🧇 วาฟเฟิล",price:"60 บาท",type:"dessert",img:"https://images.unsplash.com/photo-1562376552-0d160a2f238d"},
-{name:"🍫 บราวนี่",price:"55 บาท",type:"dessert",img:"https://images.unsplash.com/photo-1606313564200-e75d5e30476d"},
+{name:"🍫 บราวนี่",price:"55 บาท",type:"dessert",img:"https://s.shortlink.ly/brMlAO"},
 {name:"🍪 คุกกี้ช็อกโกแลต",price:"35 บาท",type:"dessert",img:"https://images.unsplash.com/photo-1499636136210-6f4ee915583e"},
 {name:"🥞 แพนเค้ก",price:"65 บาท",type:"dessert",img:"https://images.unsplash.com/photo-1528207776546-365bb710ee93"},
-{name:"🍧 น้ำแข็งไส",price:"40 บาท",type:"dessert",img:"https://images.unsplash.com/photo-1625944525903-c6b8c7b4a2a3"},
+{name:"🍧 น้ำแข็งไส",price:"40 บาท",type:"dessert",img:"https://s.shortlink.ly/U3DzDy"},
 {name:"🍯 ฮันนี่โทสต์",price:"95 บาท",type:"dessert",img:"https://s.shortlink.ly/4fMYLv"},
 
 {name:"🧋 ชานมไข่มุก",price:"50 บาท",type:"drink",img:"https://s.shortlink.ly/T9woRa"},
@@ -209,10 +209,10 @@ const foods=[
 {name:"🧋 ชาไทยเย็น",price:"40 บาท",type:"drink",img:"https://images.unsplash.com/photo-1558857563-b371033873b8"},
 {name:"🍵 ชาเขียวมัทฉะ",price:"60 บาท",type:"drink",img:"https://images.unsplash.com/photo-1515823064-d6e0c04616a7"},
 {name:"🥛 นมสด",price:"35 บาท",type:"drink",img:"https://images.unsplash.com/photo-1563636619-e9143da7973b"},
-{name:"🍫 ช็อกโกแลตร้อน",price:"55 บาท",type:"drink",img:"https://images.unsplash.com/photo-1511920170033-f8396924c348"},
-{name:"🍋 น้ำมะนาวโซดา",price:"45 บาท",type:"drink",img:"https://images.unsplash.com/photo-1558640476-437a2b9438a2"},
-{name:"🍓 สมูทตี้สตรอว์เบอร์รี่",price:"65 บาท",type:"drink",img:"https://images.unsplash.com/photo-1502741338009-cac2772e18bc"},
-{name:"🥭 สมูทตี้มะม่วง",price:"65 บาท",type:"drink",img:"https://images.unsplash.com/photo-1553530666-ba11a7da3888"},
+{name:"🍫 ช็อกโกแลตร้อน",price:"55 บาท",type:"drink",img:"https://s.shortlink.ly/6LhrW8"},
+{name:"🍋 น้ำมะนาวโซดา",price:"45 บาท",type:"drink",img:"https://s.shortlink.ly/Ym0LIo"},
+{name:"🍓 สมูทตี้สตรอว์เบอร์รี่",price:"65 บาท",type:"drink",img:"https://s.shortlink.ly/bMywMr"},
+{name:"🥭 สมูทตี้มะม่วง",price:"65 บาท",type:"drink",img:"https://s.shortlink.ly/rONVqx"},
 
 ];
 
