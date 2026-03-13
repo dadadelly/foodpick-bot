@@ -41,7 +41,7 @@ const foods=[
 {name:"🍲 ต้มยำกุ้ง",price:"90 บาท",type:"food",img:"https://s.shortlink.ly/POTh7W"},
 {name:"🍤 ข้าวผัดกุ้ง",price:"65 บาท",type:"food",img:"https://s.shortlink.ly/1xt21A"},
 {name:"🍗 ข้าวมันไก่",price:"55 บาท",type:"food",img:"https://s.shortlink.ly/bMcaAy"},
-{name:"🥗 ส้มตำไทย",price:"50 บาท",type:"food",img:"https://s.shortlink.ly/F08XAF|"},
+{name:"🥗 ส้มตำไทย",price:"50 บาท",type:"food",img:"https://s.shortlink.ly/F08XAF"},
 
 {name:"🍰 เค้กสตรอว์เบอร์รี่",price:"75 บาท",type:"dessert",img:"https://s.shortlink.ly/rV7irO"},
 {name:"🍨 ไอศกรีมวานิลลา",price:"45 บาท",type:"dessert",img:"https://s.shortlink.ly/5sVTgM"},
