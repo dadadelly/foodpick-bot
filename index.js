@@ -202,11 +202,9 @@ app.post('/webhook', line.middleware(config), async (req, res) => {
 
 async function handleEvent(event) {
   if (event.type !== 'message' || event.message.type !== 'text') return;
-  const userText = event.message.text;
-  if (matchKeyword(userText)) {
-    const randomFoods = getRandomFoods(3);
-    return client.replyMessage(event.replyToken, buildFlexMessage(randomFoods));
-  }
+
+  const randomFoods = getRandomFoods(3);
+  return client.replyMessage(event.replyToken, buildFlexMessage(randomFoods));
 }
 
 app.get('/', (req, res) => res.send('🍽️ FOODPICK Bot is running! ✅'));
