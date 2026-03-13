@@ -436,7 +436,7 @@ buildFlex(randomMenu("drink"))
 // ===== ORDER =====
 if(text.startsWith("สั่ง")){
 
-const menu=text.replace("สั่ง ","")
+const menu = text.replace("สั่ง","").trim()
 
 return client.replyMessage(event.replyToken,{
 type:"text",
