@@ -153,7 +153,6 @@ function buildFlexMessage(foods) {
           margin: 'md',
           color: '#FF6B6B',
           action: { type: 'message', label: '🛒 สั่งเลย!', text: `สั่ง ${food.name}` },
-          cornerRadius: '20px',
         },
       ],
     },
