@@ -37,19 +37,19 @@ return list.some(k=>text.includes(k))
 // ================= MENU =================
 const foods=[
 
-{name:"🍜 ผัดไทยกุ้งสด",price:"70 บาท",type:"food",img:"https://images.unsplash.com/photo-1559314809-0d155014e29e"},
-{name:"🍲 ต้มยำกุ้ง",price:"90 บาท",type:"food",img:"https://images.unsplash.com/photo-1548943487-a2e4e43b4853"},
-{name:"🍤 ข้าวผัดกุ้ง",price:"65 บาท",type:"food",img:"https://images.unsplash.com/photo-1603133872878-684f208fb84b"},
-{name:"🍗 ข้าวมันไก่",price:"55 บาท",type:"food",img:"https://images.unsplash.com/photo-1569050467447-ce54b3bbc37d"},
-{name:"🥗 ส้มตำไทย",price:"50 บาท",type:"food",img:"https://images.unsplash.com/photo-1562802378-063ec186a863"},
+{name:"🍜 ผัดไทยกุ้งสด",price:"70 บาท",type:"food",img:"https://s.shortlink.ly/EznM9k"},
+{name:"🍲 ต้มยำกุ้ง",price:"90 บาท",type:"food",img:"https://s.shortlink.ly/POTh7W"},
+{name:"🍤 ข้าวผัดกุ้ง",price:"65 บาท",type:"food",img:"https://s.shortlink.ly/1xt21A"},
+{name:"🍗 ข้าวมันไก่",price:"55 บาท",type:"food",img:"https://s.shortlink.ly/bMcaAy"},
+{name:"🥗 ส้มตำไทย",price:"50 บาท",type:"food",img:"https://s.shortlink.ly/F08XAF|"},
 
-{name:"🍰 เค้กสตรอว์เบอร์รี่",price:"75 บาท",type:"dessert",img:"https://images.unsplash.com/photo-1559622214-f8a9850965bb"},
-{name:"🍨 ไอศกรีมวานิลลา",price:"45 บาท",type:"dessert",img:"https://images.unsplash.com/photo-1563805042-7684c019e1cb"},
-{name:"🍩 โดนัท",price:"35 บาท",type:"dessert",img:"https://images.unsplash.com/photo-1509042239860-f550ce710b93"},
+{name:"🍰 เค้กสตรอว์เบอร์รี่",price:"75 บาท",type:"dessert",img:"https://s.shortlink.ly/rV7irO"},
+{name:"🍨 ไอศกรีมวานิลลา",price:"45 บาท",type:"dessert",img:"https://s.shortlink.ly/5sVTgM"},
+{name:"🍩 โดนัท",price:"35 บาท",type:"dessert",img:"https://s.shortlink.ly/qaUvch"},
 
-{name:"🧋 ชานมไข่มุก",price:"50 บาท",type:"drink",img:"https://images.unsplash.com/photo-1558857563-b371033873b8"},
-{name:"☕ กาแฟลาเต้",price:"60 บาท",type:"drink",img:"https://images.unsplash.com/photo-1509042239860-f550ce710b93"},
-{name:"🍹 น้ำผลไม้",price:"40 บาท",type:"drink",img:"https://images.unsplash.com/photo-1553530666-ba11a7da3888"}
+{name:"🧋 ชานมไข่มุก",price:"50 บาท",type:"drink",img:"https://s.shortlink.ly/T9woRa"},
+{name:"☕ กาแฟลาเต้",price:"60 บาท",type:"drink",img:"https://s.shortlink.ly/Bft3UW"},
+{name:"🍹 น้ำผลไม้",price:"40 บาท",type:"drink",img:"https://s.shortlink.ly/lZ8NzH"}
 
 ];
 
