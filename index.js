@@ -192,6 +192,8 @@ function buildFlexMessage(foods) {
 // ===== WEBHOOK HANDLER =====
 // ในโค้ดใช้เส้นทาง /webhook เพื่อให้ตรงกับที่คุณเดฟตั้งในรูป image_40c0f5.png ค่ะ
 app.post('/webhook', line.middleware(config), async (req, res) => {
+  console.log("Webhook received:", JSON.stringify(req.body));
+
   try {
     const events = req.body.events;
     await Promise.all(events.map(handleEvent));
