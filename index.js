@@ -1,3 +1,7 @@
+const { NlpManager } = require('node-nlp');
+
+const manager = new NlpManager({ languages: ['th','en'] });
+
 const express = require('express');
 const line = require('@line/bot-sdk');
 
@@ -171,6 +175,25 @@ const DRINK_KEYWORDS = [
 "any drink",
 "what drink"
 ];
+// ================= AUTO TRAIN FROM KEYWORDS =================
+
+// FOOD
+FOOD_KEYWORDS.forEach(k => {
+  manager.addDocument('th', k, 'food');
+  manager.addDocument('en', k, 'food');
+});
+
+// DESSERT
+DESSERT_KEYWORDS.forEach(k => {
+  manager.addDocument('th', k, 'dessert');
+  manager.addDocument('en', k, 'dessert');
+});
+
+// DRINK
+DRINK_KEYWORDS.forEach(k => {
+  manager.addDocument('th', k, 'drink');
+  manager.addDocument('en', k, 'drink');
+});
 
 
 function matchKeyword(text,list){
@@ -316,6 +339,19 @@ contents:bubbles
 
 }
 
+const port = process.env.PORT || 3000
+
+// TRAIN
+async function trainAI(){
+  await manager.train();
+  manager.save();
+  console.log("AI trained!");
+}
+
+app.listen(port, async ()=>{
+  await trainAI();
+  console.log("FOODPICK Bot running on port "+port)
+})
 
 // ================= WEBHOOK =================
 app.post('/webhook',line.middleware(config),(req,res)=>{
@@ -389,67 +425,72 @@ text:"งื้ออ 🎧 ตอนนี้ FOODPICK ยังฟังเส�
 if(event.message.type !== "text") return null
 
 const text = normalizeText(event.message.text)
+const ai = await manager.process('auto', text)
 
 
-// ===== FOOD =====
+// ===== AI FOOD =====
+if(ai.intent === "food" && ai.score > 0.6){
+  return client.replyMessage(event.replyToken,[
+    { type:"text", text:"🍙 AI เลือกเมนูให้แล้วน้าา~ 💕" },
+    buildFlex(randomMenu("food"))
+  ])
+}
+
+// ===== AI DESSERT =====
+if(ai.intent === "dessert" && ai.score > 0.6){
+  return client.replyMessage(event.replyToken,[
+    { type:"text", text:"🍰 AI จัดของหวานให้แล้วค่าา~ 💖" },
+    buildFlex(randomMenu("dessert"))
+  ])
+}
+
+// ===== AI DRINK =====
+if(ai.intent === "drink" && ai.score > 0.6){
+  return client.replyMessage(event.replyToken,[
+    { type:"text", text:"🧋 AI เลือกเครื่องดื่มให้แล้วน้าา~ ✨" },
+    buildFlex(randomMenu("drink"))
+  ])
+}
+
+// ===== KEYWORD (fallback) =====
 if(matchKeyword(text,FOOD_KEYWORDS)){
-
-return client.replyMessage(event.replyToken,[
-{
-type:"text",
-text:"🍙 กำลังสุ่มเมนูอร่อยๆให้เลยนะคะ~ 💕"
-},
-buildFlex(randomMenu("food"))
-])
-
+  return client.replyMessage(event.replyToken,[
+    { type:"text", text:"🍜 (fallback) จัดเมนูให้แล้วค่าา~ 💕" },
+    buildFlex(randomMenu("food"))
+  ])
 }
 
-
-// ===== DESSERT =====
 if(matchKeyword(text,DESSERT_KEYWORDS)){
-
-return client.replyMessage(event.replyToken,[
-{
-type:"text",
-text:"🍰 เมนูของหวานน่ารักๆมาแล้วค่าา~ 💖"
-},
-buildFlex(randomMenu("dessert"))
-])
-
+  return client.replyMessage(event.replyToken,[
+    { type:"text", text:"🍰 (fallback) ของหวานมาแล้วน้าา~ 💖" },
+    buildFlex(randomMenu("dessert"))
+  ])
 }
 
-
-// ===== DRINK =====
 if(matchKeyword(text,DRINK_KEYWORDS)){
-
-return client.replyMessage(event.replyToken,[
-{
-type:"text",
-text:"🧋 เครื่องดื่มสดชื่นมาแล้วค่าา~ ✨"
-},
-buildFlex(randomMenu("drink"))
-])
-
+  return client.replyMessage(event.replyToken,[
+    { type:"text", text:"🧋 (fallback) เครื่องดื่มมาแล้วค่าา~ ✨" },
+    buildFlex(randomMenu("drink"))
+  ])
 }
-
 
 // ===== ORDER =====
 if(text.startsWith("สั่ง")){
 
-const menu = text.replace("สั่ง","").trim()
+  const menu = text.replace("สั่ง","").trim()
 
-return client.replyMessage(event.replyToken,{
-type:"text",
-text:`เย้~ 🎉 รับออเดอร์ ${menu} แล้วค่าา 🍽️💖\nกำลังเตรียมความอร่อยให้เลยนะคะ 😋`
-})
+  return client.replyMessage(event.replyToken,{
+    type:"text",
+    text:`เย้~ 🎉 รับออเดอร์ ${menu} แล้วค่าา 🍽️💖\nกำลังเตรียมความอร่อยให้เลยนะคะ 😋`
+  })
 
 }
 
 
 // ===== UNKNOWN =====
 return client.replyMessage(event.replyToken,{
-type:"text",
-text:`งื้อออ 🥺 ฉันยังไม่เข้าใจข้อความนี้ค่าา
+  type:"text",
+  text:`งื้อออ 🥺 ฉันยังไม่เข้าใจข้อความนี้ค่าา
 
 ลองพิมพ์แบบนี้ได้นะคะ 💕
 
@@ -465,8 +506,3 @@ text:`งื้อออ 🥺 ฉันยังไม่เข้าใจข�
 // ================= SERVER =================
 app.get('/',(req,res)=>res.send("🍱 FOODPICK Kawaii Bot Running"))
 
-const port = process.env.PORT || 3000
-
-app.listen(port,()=>{
-console.log("FOODPICK Bot running on port "+port)
-})
