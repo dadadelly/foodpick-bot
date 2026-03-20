@@ -452,28 +452,6 @@ if(ai.intent === "drink" && ai.score > 0.6){
   ])
 }
 
-// ===== KEYWORD (fallback) =====
-if(matchKeyword(text,FOOD_KEYWORDS)){
-  return client.replyMessage(event.replyToken,[
-    { type:"text", text:"🍜 (fallback) จัดเมนูให้แล้วค่าา~ 💕" },
-    buildFlex(randomMenu("food"))
-  ])
-}
-
-if(matchKeyword(text,DESSERT_KEYWORDS)){
-  return client.replyMessage(event.replyToken,[
-    { type:"text", text:"🍰 (fallback) ของหวานมาแล้วน้าา~ 💖" },
-    buildFlex(randomMenu("dessert"))
-  ])
-}
-
-if(matchKeyword(text,DRINK_KEYWORDS)){
-  return client.replyMessage(event.replyToken,[
-    { type:"text", text:"🧋 (fallback) เครื่องดื่มมาแล้วค่าา~ ✨" },
-    buildFlex(randomMenu("drink"))
-  ])
-}
-
 // ===== ORDER =====
 if(text.startsWith("สั่ง")){
 
@@ -485,7 +463,28 @@ if(text.startsWith("สั่ง")){
   })
 
 }
+  
+// ===== KEYWORD (fallback) =====
+if(matchKeyword(text,FOOD_KEYWORDS)){
+  return client.replyMessage(event.replyToken,[
+    { type:"text", text:"🍜 จัดเมนูให้แล้วค่าา~ 💕" },
+    buildFlex(randomMenu("food"))
+  ])
+}
 
+if(matchKeyword(text,DESSERT_KEYWORDS)){
+  return client.replyMessage(event.replyToken,[
+    { type:"text", text:"🍰 ของหวานมาแล้วน้าา~ 💖" },
+    buildFlex(randomMenu("dessert"))
+  ])
+}
+
+if(matchKeyword(text,DRINK_KEYWORDS)){
+  return client.replyMessage(event.replyToken,[
+    { type:"text", text:"🧋 เครื่องดื่มมาแล้วค่าา~ ✨" },
+    buildFlex(randomMenu("drink"))
+  ])
+}
 
 // ===== UNKNOWN =====
 return client.replyMessage(event.replyToken,{
