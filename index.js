@@ -532,7 +532,21 @@ if(text.startsWith("สั่ง")){
   })
 
 }
-  
+
+// ===== ORDER =====
+if(text.startsWith("สั่ง")){ ... }
+
+try {
+  const { text: reply, menu } = await agent.chat(event.source.userId, event.message.text)
+  ...
+} catch (e) {
+  console.error("agent error:", e.message)
+}
+
+// ===== KEYWORD (fallback) =====
+if(matchKeyword(text,FOOD_KEYWORDS)){ ...
+
+
 // ===== KEYWORD (fallback) =====
 if(matchKeyword(text,FOOD_KEYWORDS)){
   return client.replyMessage(event.replyToken,[
