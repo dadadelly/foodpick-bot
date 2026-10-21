@@ -449,6 +449,20 @@ text = text.trim()
 return text
 }
 
+// ================= LOADING =================
+// แสดงจุด "กำลังพิมพ์..." ในไลน์ระหว่างรอ AI (ใช้ได้เฉพาะแชตตัวต่อตัว)
+function showLoading(userId){
+  if(!userId) return
+  return fetch("https://api.line.me/v2/bot/chat/loading/start", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${process.env.CHANNEL_ACCESS_TOKEN}`
+    },
+    body: JSON.stringify({ chatId: userId, loadingSeconds: 20 })
+  }).catch(() => {})
+}
+
 // ================= EVENT =================
 async function handleEvent(event){
 
@@ -535,6 +549,7 @@ if(text.startsWith("สั่ง")){
 
 // ===== AI (Gemini) =====
 try {
+  showLoading(event.source.userId)
   const { text: reply, menu } = await agent.chat(event.source.userId, event.message.text)
   const msgs = [{ type: "text", text: reply }]
   if (menu.length) msgs.push(buildFlex(menu))
