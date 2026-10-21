@@ -2,8 +2,16 @@
 // ใช้หลัก Agent Loop เดียวกับ workshop: LLM "ขอ" เรียก tool -> โค้ดเราเรียกจริง -> ส่งผลกลับ
 const OpenAI = require('openai');
 
-const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY }); // ตั้งใน Render > Environment
-const MODEL = 'gpt-4o-mini';
+// ใช้ได้ทั้ง Gemini (มีแบบฟรี) และ OpenAI — ตั้งอย่างใดอย่างหนึ่งใน Render > Environment
+//   GEMINI_API_KEY = key จาก aistudio.google.com   หรือ   OPENAI_API_KEY = key จาก OpenAI
+//   LLM_MODEL (ไม่ใส่ก็ได้) = เปลี่ยนชื่อโมเดล
+// ถ้ายังไม่ได้ตั้ง key บอทยังรันได้ แค่ตอบข้อความ UNKNOWN แบบเดิม
+const USE_GEMINI = !!process.env.GEMINI_API_KEY;
+const API_KEY = process.env.GEMINI_API_KEY || process.env.OPENAI_API_KEY;
+const openai = !API_KEY ? null : new OpenAI(USE_GEMINI
+  ? { apiKey: API_KEY, baseURL: 'https://generativelanguage.googleapis.com/v1beta/openai/' }
+  : { apiKey: API_KEY });
+const MODEL = process.env.LLM_MODEL || (USE_GEMINI ? 'gemini-3.8-flash' : 'gpt-4o-mini');
 const MAX_STEPS = 4;
 const HISTORY_LIMIT = 10; // จำบทสนทนาล่าสุดต่อคน (อยู่ใน RAM, Render รีสตาร์ตแล้วหาย)
 
@@ -43,6 +51,7 @@ module.exports = function createAgent(foods) {
   }
 
   async function chat(userId, userText) {
+    if (!openai) throw new Error('ยังไม่ได้ตั้ง GEMINI_API_KEY หรือ OPENAI_API_KEY ใน Render');
     const history = histories.get(userId) || [];
     const messages = [{ role: 'system', content: SYSTEM }, ...history, { role: 'user', content: userText }];
     let shown = []; // เมนูที่ค้นเจอ เอาไปทำ Flex carousel
