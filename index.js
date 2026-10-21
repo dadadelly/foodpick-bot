@@ -307,6 +307,7 @@ const foods=[
 
 ];
 
+const agent = require('./agent')(foods)
 
 // ================= RANDOM =================
 function randomMenu(type){
@@ -554,6 +555,16 @@ if(matchKeyword(text,DRINK_KEYWORDS)){
   ])
 }
 
+try {
+  const { text: reply, menu } = await agent.chat(event.source.userId, event.message.text)
+  const msgs = [{ type: "text", text: reply }]
+  if (menu.length) msgs.push(buildFlex(menu))
+  return client.replyMessage(event.replyToken, msgs)
+} catch (e) {
+  console.error("agent error:", e.message)   // ถ้า API ล่ม จะตกไปใช้ข้อความ UNKNOWN เดิม
+}
+
+  
 // ===== UNKNOWN =====
 return client.replyMessage(event.replyToken,{
   type:"text",
